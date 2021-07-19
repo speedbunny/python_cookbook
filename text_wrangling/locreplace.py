@@ -7,14 +7,17 @@ Text wrangling LOC REPLACES
 """
 import pandas as pd
 #Locreplace Function
+import pandas as pd
+
 def locreplace(df,col,needle,replace,needle2=''):
    if (needle2==''):
-      df.loc[df[col].str.contains(needle, case=False)==True, col] = replace
+      df.loc[df[col].str.contains(needle, case=False)==True,col] = replace
    else:
-     df.loc[[df[col].str.contains(needle, case=False)==True] and df[col].str.contains(needle2, case=False)==True,col] = replace
+     df.loc[df[col].str.contains(needle, case=False) & df[col].str.contains(needle2, case=False), col] = replace
+
 
 #In Action
-data = [['granny apple', 'juicy'], ['blood orange', 'refreshing'], ['spanish lemon', 'tangy']]
+data = [['granny apple', 'juicy'], ['granny blood orange', 'refreshing'], ['spanish lemon', 'tangy']]
 fruitdf = pd.DataFrame(data, columns = ['fruit', 'taste'])
 
 locreplace(fruitdf,'fruit','apple','big red apple','granny')
