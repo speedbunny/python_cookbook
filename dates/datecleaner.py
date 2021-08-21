@@ -2,7 +2,44 @@ import pandas as pd
 import re
 from contextlib import suppress
 
+#Reusable Date Cleaner - SE
 def cleanup(date):
+    date = date.strip()
+    #Common errors
+    date = date.replace("!", "0")
+    date = date.replace("//", "/")
+    date = date.replace("1900", "2021")
+    date = date.replace("Thu ","")
+    date = date.replace("Fri ","")
+    date = date.replace("Sat ","")
+    date = date.replace("Sun ","")
+    date = date.replace("Mon ","")
+    date = date.replace("Tue ","")
+    date = date.replace("Wed ","")
+    date = date.replace(" June ","/06/")
+    date = date.replace(" June ","/07/")
+    date = date.replace("rd","")
+    date = date.replace("th","")
+    #Incorrect in 2021
+    date = date.replace("2020", "2021")
+    date = date.replace("2022", "2021")
+    date = date.replace("2023", "2021")
+    date = date.replace("2024", "2021")
+    date = date.replace("2025", "2021")
+    date = date.replace("2026", "2021")
+    #Dataset specific errors
+    date = date.replace("22021", "2021")
+    date = date.replace("20021", "2021")
+    date = date.replace("21021", "2021")
+    date = date.replace("20201", "2021")
+    date = date.replace("062021", "06/2021")
+    date = date.replace("10 Jun","2021-06-10")
+    date = date.replace("Thu","")
+    date = date.replace("20217", "2021")
+    date = date.replace("109/", "19")
+    #An awkward one
+    date = date.replace("202", "2021")
+    date = date.replace("20211", "2021")
     with suppress(ValueError):
         return str(int(date))
 
@@ -11,6 +48,7 @@ def cleanup(date):
         if match is not None:
                return formater.format(*match.groups())
     return date
+
 
 PATTERNS = [
     ## Dotted dates ##
