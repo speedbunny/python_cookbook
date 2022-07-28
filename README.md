@@ -8,3 +8,4 @@ Cookbook of solutions I frequently forget and for ease of modular coding
 5. OTP generation.
 6. Data cleaning with find and replace.
 7. Split large text file into smaller files by delimiter.
+8. Sensitivity & Specificity
