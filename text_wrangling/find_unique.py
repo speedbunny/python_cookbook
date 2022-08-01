@@ -1,11 +1,12 @@
-#Remove duplicates including duplicated values and leave uniques 
-    tally = dict()
-
-    for x in my_array:
+my_array = ("milk","bread","cheese","cheese","bread")
+def tally(array):
+ tally = dict()
+ for x in my_array:
         try:
-            del tally[x]
+           del tally[x]
         except KeyError:
             tally[x] = 1
-#  FOR ONE UNIQUE 
-#   for key, value in tally.items():
-#    return(key)
+
+ for key, value in tally.items():
+        return(key)
+print(tally(my_array))
