@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 Generate OTP on screen instead of phone
+additional code to autopaste if needed
 Created on Mon Jun 21 08:28:15 2021
-@author: SEaglesfield
+@author: Sarah E
 """
 import pyotp
 import selenium
