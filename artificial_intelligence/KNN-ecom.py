@@ -1,3 +1,4 @@
+#Uses KNN to predict whether a customer will make a purchase or not given a CSV of visitor data and history 
 import csv
 import sys
 
